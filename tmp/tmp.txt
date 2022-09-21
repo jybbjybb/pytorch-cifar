@@ -1,0 +1,214 @@
+==> Preparing data..
+Files already downloaded and verified
+Files already downloaded and verified
+Namespace(lr=0.1, epoch=200, bs=128, resume=None, arch='resnet18', save_folder='checkpoint/efficientnetb0/tmp', restart_training=False, evaluate=False, debug=True)
+==> Building model..
+DataParallel(
+  (module): ResNet(
+    (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (layer1): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (layer2): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential(
+          (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (layer3): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential(
+          (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (layer4): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (shortcut): Sequential()
+      )
+    )
+    (linear): Linear(in_features=512, out_features=10, bias=True)
+  )
+)
+module.conv1.weight torch.Size([64, 3, 3, 3])
+module.bn1.weight torch.Size([64])
+module.bn1.bias torch.Size([64])
+module.layer1.0.conv1.weight torch.Size([64, 64, 3, 3])
+module.layer1.0.bn1.weight torch.Size([64])
+module.layer1.0.bn1.bias torch.Size([64])
+module.layer1.0.conv2.weight torch.Size([64, 64, 3, 3])
+module.layer1.0.bn2.weight torch.Size([64])
+module.layer1.0.bn2.bias torch.Size([64])
+module.layer1.1.conv1.weight torch.Size([64, 64, 3, 3])
+module.layer1.1.bn1.weight torch.Size([64])
+module.layer1.1.bn1.bias torch.Size([64])
+module.layer1.1.conv2.weight torch.Size([64, 64, 3, 3])
+module.layer1.1.bn2.weight torch.Size([64])
+module.layer1.1.bn2.bias torch.Size([64])
+module.layer2.0.conv1.weight torch.Size([128, 64, 3, 3])
+module.layer2.0.bn1.weight torch.Size([128])
+module.layer2.0.bn1.bias torch.Size([128])
+module.layer2.0.conv2.weight torch.Size([128, 128, 3, 3])
+module.layer2.0.bn2.weight torch.Size([128])
+module.layer2.0.bn2.bias torch.Size([128])
+module.layer2.0.shortcut.0.weight torch.Size([128, 64, 1, 1])
+module.layer2.0.shortcut.1.weight torch.Size([128])
+module.layer2.0.shortcut.1.bias torch.Size([128])
+module.layer2.1.conv1.weight torch.Size([128, 128, 3, 3])
+module.layer2.1.bn1.weight torch.Size([128])
+module.layer2.1.bn1.bias torch.Size([128])
+module.layer2.1.conv2.weight torch.Size([128, 128, 3, 3])
+module.layer2.1.bn2.weight torch.Size([128])
+module.layer2.1.bn2.bias torch.Size([128])
+module.layer3.0.conv1.weight torch.Size([256, 128, 3, 3])
+module.layer3.0.bn1.weight torch.Size([256])
+module.layer3.0.bn1.bias torch.Size([256])
+module.layer3.0.conv2.weight torch.Size([256, 256, 3, 3])
+module.layer3.0.bn2.weight torch.Size([256])
+module.layer3.0.bn2.bias torch.Size([256])
+module.layer3.0.shortcut.0.weight torch.Size([256, 128, 1, 1])
+module.layer3.0.shortcut.1.weight torch.Size([256])
+module.layer3.0.shortcut.1.bias torch.Size([256])
+module.layer3.1.conv1.weight torch.Size([256, 256, 3, 3])
+module.layer3.1.bn1.weight torch.Size([256])
+module.layer3.1.bn1.bias torch.Size([256])
+module.layer3.1.conv2.weight torch.Size([256, 256, 3, 3])
+module.layer3.1.bn2.weight torch.Size([256])
+module.layer3.1.bn2.bias torch.Size([256])
+module.layer4.0.conv1.weight torch.Size([512, 256, 3, 3])
+module.layer4.0.bn1.weight torch.Size([512])
+module.layer4.0.bn1.bias torch.Size([512])
+module.layer4.0.conv2.weight torch.Size([512, 512, 3, 3])
+module.layer4.0.bn2.weight torch.Size([512])
+module.layer4.0.bn2.bias torch.Size([512])
+module.layer4.0.shortcut.0.weight torch.Size([512, 256, 1, 1])
+module.layer4.0.shortcut.1.weight torch.Size([512])
+module.layer4.0.shortcut.1.bias torch.Size([512])
+module.layer4.1.conv1.weight torch.Size([512, 512, 3, 3])
+module.layer4.1.bn1.weight torch.Size([512])
+module.layer4.1.bn1.bias torch.Size([512])
+module.layer4.1.conv2.weight torch.Size([512, 512, 3, 3])
+module.layer4.1.bn2.weight torch.Size([512])
+module.layer4.1.bn2.bias torch.Size([512])
+module.linear.weight torch.Size([10, 512])
+module.linear.bias torch.Size([10])
+1660862908.3402236 1660862907.0078835
+Module          | Self CPU total | CPU total     | Self CUDA total | CUDA total    | Self CPU Mem | CPU Mem | Self CUDA Mem | CUDA Mem | Number of Calls
+----------------|----------------|---------------|-----------------|---------------|--------------|---------|---------------|----------|----------------
+DataParallel    |                |               |                 |               |              |         |               |          |                
+└── module      |                |               |                 |               |              |         |               |          |                
+ ├── conv1      | 494795.000us   | 2423697.000us | 493537.000us    | 1973847.000us | N/A          | N/A     | N/A           | N/A      | 1              
+ ├── bn1        | 789.000us      | 1563.000us    | 436.000us       | 1112.000us    | N/A          | N/A     | N/A           | N/A      | 1              
+ ├── layer1     |                |               |                 |               |              |         |               |          |                
+ │├── 0         |                |               |                 |               |              |         |               |          |                
+ ││├── conv1    | 3542.000us     | 15930.000us   | 3387.000us      | 13477.000us   | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn1      | 395.000us      | 929.000us     | 233.000us       | 683.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── conv2    | 265.000us      | 630.000us     | 164.000us       | 596.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn2      | 322.000us      | 783.000us     | 200.000us       | 595.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││└── shortcut | 5.000us        | 5.000us       | 0.000us         | 0.000us       | N/A          | N/A     | N/A           | N/A      | 1              
+ │├── 1         |                |               |                 |               |              |         |               |          |                
+ ││├── conv1    | 247.000us      | 584.000us     | 155.000us       | 561.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn1      | 316.000us      | 764.000us     | 195.000us       | 582.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── conv2    | 251.000us      | 591.000us     | 156.000us       | 566.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn2      | 303.000us      | 717.000us     | 185.000us       | 552.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││└── shortcut | 4.000us        | 4.000us       | 0.000us         | 0.000us       | N/A          | N/A     | N/A           | N/A      | 1              
+ ├── layer2     |                |               |                 |               |              |         |               |          |                
+ │├── 0         |                |               |                 |               |              |         |               |          |                
+ ││├── conv1    | 2086.000us     | 9077.000us    | 1995.000us      | 7930.000us    | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn1      | 323.000us      | 770.000us     | 195.000us       | 584.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── conv2    | 3710.000us     | 16921.000us   | 3599.000us      | 14351.000us   | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn2      | 349.000us      | 828.000us     | 206.000us       | 617.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── shortcut |                |               |                 |               |              |         |               |          |                
+ │││├── 0       | 1468.000us     | 6136.000us    | 1321.000us      | 5215.000us    | N/A          | N/A     | N/A           | N/A      | 1              
+ │││└── 1       | 333.000us      | 763.000us     | 193.000us       | 573.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ │├── 1         |                |               |                 |               |              |         |               |          |                
+ ││├── conv1    | 296.000us      | 778.000us     | 181.000us       | 673.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn1      | 305.000us      | 720.000us     | 185.000us       | 550.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── conv2    | 280.000us      | 738.000us     | 163.000us       | 589.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn2      | 303.000us      | 715.000us     | 182.000us       | 542.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││└── shortcut | 4.000us        | 4.000us       | 0.000us         | 0.000us       | N/A          | N/A     | N/A           | N/A      | 1              
+ ├── layer3     |                |               |                 |               |              |         |               |          |                
+ │├── 0         |                |               |                 |               |              |         |               |          |                
+ ││├── conv1    | 3092.000us     | 14045.000us   | 3006.000us      | 11996.000us   | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn1      | 315.000us      | 741.000us     | 187.000us       | 567.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── conv2    | 5935.000us     | 28068.000us   | 5844.000us      | 23349.000us   | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn2      | 422.000us      | 1049.000us    | 261.000us       | 789.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── shortcut |                |               |                 |               |              |         |               |          |                
+ │││├── 0       | 1570.000us     | 6799.000us    | 1450.000us      | 5745.000us    | N/A          | N/A     | N/A           | N/A      | 1              
+ │││└── 1       | 312.000us      | 727.000us     | 183.000us       | 547.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ │├── 1         |                |               |                 |               |              |         |               |          |                
+ ││├── conv1    | 309.000us      | 820.000us     | 217.000us       | 821.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn1      | 306.000us      | 726.000us     | 187.000us       | 559.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── conv2    | 294.000us      | 750.000us     | 192.000us       | 718.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn2      | 307.000us      | 732.000us     | 187.000us       | 562.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││└── shortcut | 5.000us        | 5.000us       | 0.000us         | 0.000us       | N/A          | N/A     | N/A           | N/A      | 1              
+ ├── layer4     |                |               |                 |               |              |         |               |          |                
+ │├── 0         |                |               |                 |               |              |         |               |          |                
+ ││├── conv1    | 6630.000us     | 31540.000us   | 6558.000us      | 26184.000us   | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn1      | 330.000us      | 749.000us     | 192.000us       | 583.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── conv2    | 18495.000us    | 89992.000us   | 18421.000us     | 73653.000us   | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── bn2      | 370.000us      | 868.000us     | 214.000us       | 651.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ ││├── shortcut |                |               |                 |               |              |         |               |          |                
+ │││├── 0       | 5951.000us     | 28733.000us   | 5833.000us      | 23268.000us   | N/A          | N/A     | N/A           | N/A      | 1              
+ │││└── 1       | 322.000us      | 770.000us     | 197.000us       | 593.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ │└── 1         |                |               |                 |               |              |         |               |          |                
+ │ ├── conv1    | 3670.000us     | 20505.000us   | 3579.000us      | 17545.000us   | N/A          | N/A     | N/A           | N/A      | 1              
+ │ ├── bn1      | 304.000us      | 718.000us     | 188.000us       | 570.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ │ ├── conv2    | 385.000us      | 825.000us     | 289.000us       | 1110.000us    | N/A          | N/A     | N/A           | N/A      | 1              
+ │ ├── bn2      | 301.000us      | 714.000us     | 187.000us       | 567.000us     | N/A          | N/A     | N/A           | N/A      | 1              
+ │ └── shortcut | 5.000us        | 5.000us       | 0.000us         | 0.000us       | N/A          | N/A     | N/A           | N/A      | 1              
+ └── linear     | 3063.000us     | 8572.000us    | 2948.000us      | 5883.000us    | N/A          | N/A     | N/A           | N/A      | 1              
+
